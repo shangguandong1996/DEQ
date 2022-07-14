@@ -67,7 +67,7 @@ deq <- function(input.bams,ip.bams,treated.input.bams,treated.ip.bams,
   #calculate gene log2 fold change  
   if (compare.gene){
     peaks$gene.counts <- get.gene.counts(c(input.bams,treated.input.bams),
-                                         gtf,paired.end,extension,genenames)
+                                         gtf,paired.end,extension,genenames,nthreads = nthreads)
     peaks$gene.de <- run.deseq2.4l2fc(peaks$gene.counts,meta.data[which(meta.data$IP == "input"),],'gene')
     results$gene.l2fc <- peaks$gene.de[results$main.gene,]$gene.l2fc
     results$gene.p <- peaks$gene.de[results$main.gene,]$gene.p
