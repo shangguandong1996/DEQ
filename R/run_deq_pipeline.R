@@ -77,7 +77,7 @@ deq <- function(input.bams,ip.bams,treated.input.bams,treated.ip.bams,
   
   results$start <- results$start-1
   colnames(peak.counts) <- make.names(paste0(meta.data$Condition,"_",meta.data$IP),unique=TRUE)
-  write.table(peak.counts,gsub('.txt','.counts.txt',outfi),quote = FALSE,sep='\t',row.names = TRUE,col.names=TRUE)
-  write.table(results,outfi,quote = FALSE,sep='\t',row.names = FALSE,col.names=TRUE)
+  #write.table(peak.counts,gsub('.txt','.counts.txt',outfi),quote = FALSE,sep='\t',row.names = TRUE,col.names=TRUE)
+  #write.table(results,outfi,quote = FALSE,sep='\t',row.names = FALSE,col.names=TRUE)
   return(results)
 }
