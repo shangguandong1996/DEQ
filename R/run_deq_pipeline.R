@@ -43,6 +43,7 @@ deq <- function(input.bams,ip.bams,treated.input.bams,treated.ip.bams,
   #load gtf annotations
   txdb <- GenomicFeatures::makeTxDbFromGFF(gtf,format='gtf')
   gtf.in <- rtracklayer::import(gtf)
+  gtf.in$gene_name <- gtf.in$gene_id
   genenames <- unique(as.data.frame(gtf.in)[,c("gene_id","gene_name","strand")])
   anno <- list(txdb=txdb,genenames=genenames)
   annotation.order <- c("utr3","utr5","exon","intron","utr3*","utr5*")
