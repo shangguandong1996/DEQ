@@ -58,6 +58,7 @@ deq <- function(input.bams,ip.bams,treated.input.bams,treated.ip.bams,
   
   #run DESeq2, edgeR, and QNB to predict changes in m6A methylation
   results <- peaks$peaks[,c("annot","main.gene")]
+  results <- as.data.frame(results)
   results <- run.tools(results,peak.counts,meta.data,tool,input.bams,ip.bams,treated.input.bams,treated.ip.bams) 
   peaks$peak.de <- run.deseq2.4l2fc(peak.counts[,which(meta.data$IP == "IP")],
                                   meta.data[which(meta.data$IP == "IP"),],'peak')
